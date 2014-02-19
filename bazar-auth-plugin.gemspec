@@ -4,7 +4,7 @@ require "bazar/version"
 
 Gem::Specification.new do |s|
   s.name        = "bazar-auth-plugin"
-  s.version     = Bazar::VERSION
+  s.version     = Bazar::Version
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ["MIT"]
   s.summary     = "Facilitar integração com o Bazar Oauth"
