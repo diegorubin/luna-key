@@ -1,0 +1,2 @@
+# Bazar Auth Plugin
+
