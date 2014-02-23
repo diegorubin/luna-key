@@ -1,0 +1,3 @@
+class Bazar::User
+end
+
