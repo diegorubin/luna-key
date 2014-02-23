@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "bazar/version"
 
 Gem::Specification.new do |s|
-  s.name        = "bazar-auth-plugin"
+  s.name        = "bazar"
   s.version     = Bazar::Version
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ["MIT"]
@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Diego Rubin']
 
   s.files = %w(Gemfile README.md)
-  s.files << "bazar-auth-plugin.gemspec"
+  s.files << "bazar.gemspec"
   s.files += Dir.glob("lib/**/*.rb")
 
   s.test_files    = `git ls-files -- spec/*`.split("\n")
