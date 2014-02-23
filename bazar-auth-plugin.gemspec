@@ -1,5 +1,4 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
 require "bazar/version"
 
 Gem::Specification.new do |s|
@@ -18,7 +17,6 @@ Gem::Specification.new do |s|
   s.files += Dir.glob("lib/**/*.rb")
 
   s.test_files    = `git ls-files -- spec/*`.split("\n")
-  s.require_paths = ["lib"]
 
   s.add_dependency("rails", "~> 4.0.0")
   s.add_dependency("oauth2", "0.9.3")
