@@ -13,7 +13,10 @@ Gem::Specification.new do |s|
   s.description = "Facilitar integração com o Bazar Oauth"
   s.authors     = ['Diego Rubin']
 
-  s.files         = `git ls-files`.split("\n")
+  s.files = %w(Gemfile README.md)
+  s.files << "bazar-auth-plugin.gemspec"
+  s.files += Dir.glob("lib/**/*.rb")
+
   s.test_files    = `git ls-files -- spec/*`.split("\n")
   s.require_paths = ["lib"]
 
