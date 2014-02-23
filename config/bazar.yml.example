@@ -1,4 +1,3 @@
 bazar:
-  ssl: false
   provider: localhost:3001
 
