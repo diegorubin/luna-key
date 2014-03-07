@@ -1,5 +1,7 @@
 module Bazar
   class User
+
+    CURRENT_API_USER = '/api/v1/users'
   
     attr_accessor :email, :token
     attr_writer :password, :password_confirmation
@@ -11,7 +13,7 @@ module Bazar
   
     def create
       @service.post do |req|
-        req.url '/api/v1/users'
+        req.url CURRENT_API_USER
         req.headers['Content-Type'] = 'application/json'
         req.body = as_json
       end

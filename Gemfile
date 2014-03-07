@@ -10,5 +10,6 @@ gem "faraday", "~> 0.9.0"
 
 group :test do
   gem 'rspec', '>= 2.14'
+  gem 'simplecov', '~> 0.7.1'
 end
 
