@@ -1,0 +1,9 @@
+production:
+  host: "https://example.com" 
+
+development:
+  host: "http://localhost:3001"
+
+test:
+  host: "http://localhost:3001"
+

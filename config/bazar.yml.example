@@ -1,3 +1,9 @@
-bazar:
-  provider: localhost:3001
+production:
+  host: localhost:3001
+
+development:
+  host: localhost:3001
+
+test:
+  host: localhost:3001
 

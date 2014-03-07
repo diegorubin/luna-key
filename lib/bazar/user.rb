@@ -8,7 +8,7 @@ module Bazar
   
     def initialize(attributes = {})
       from_hash(attributes)
-      @service = Faraday.new(url: Figaro.bazar.provider)
+      @service = Faraday.new(url: Bazar::Config.host)
     end
   
     def create

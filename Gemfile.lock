@@ -119,7 +119,6 @@ PLATFORMS
 DEPENDENCIES
   bazar!
   faraday (~> 0.9.0)
-  figaro (~> 0.7.0)
   oauth2
   rails (~> 4.0.0)
   rdoc

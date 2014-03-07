@@ -1,0 +1,36 @@
+module Bazar
+
+  module Config
+
+    def self.host
+      defined?(@@config) || load_config
+      @@config.host
+    end
+
+    def self.load_config
+      @@config = ConfigFileLoader.new
+    end
+
+    private
+    class ConfigFileLoader
+
+      def initialize
+        read_config_file
+      end
+
+      def host
+        @infos[RAILS_ENV]['host']
+      end
+
+      private
+      def read_config_file
+        file = File.open(File.join(Rails.root.to_s, 'config', 'bazar.yml'))
+        @infos = YAML::load(file.read)
+      end
+
+    end
+
+  end
+
+end
+
