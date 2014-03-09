@@ -8,13 +8,12 @@ module Bazar
   
     def initialize(attributes = {})
       from_hash(attributes)
-      @service = Faraday.new(url: Bazar::Config.host)
     end
   
     def create
+      @service = connection
       @service.post do |req|
         req.url CURRENT_API_USER
-        req.headers['Content-Type'] = 'application/json'
         req.body = as_json
       end
     end
@@ -30,6 +29,15 @@ module Bazar
         email: @email, password: @password,
         password_confirmation: @password_confirmation
       }
+    end
+
+    private
+    def connection
+      @service ||= Faraday.new(url: Bazar::Config.host) do |faraday|
+        faraday.request :url_encoded
+        faraday.response :json
+        faraday.adapter Faraday.default_adapter
+      end
     end
   
   end

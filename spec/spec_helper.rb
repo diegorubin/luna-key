@@ -4,7 +4,7 @@ Bundler.setup
 require 'simplecov'
 SimpleCov.start
 
-require 'faraday'
+require 'faraday_middleware'
 require 'figaro'
 require 'bazar'
 

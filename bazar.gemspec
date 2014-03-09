@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency("rails", "~> 4.0.0")
   s.add_dependency("oauth2", "0.9.3")
-  s.add_dependency("faraday", "~> 0.9.0")
+  s.add_dependency("faraday_middleware")
   s.add_dependency("figaro", "~> 0.7.0")
 end
 
