@@ -1,6 +1,6 @@
-require "bazar/config"
-require "bazar/user"
+require "luna/config"
+require "luna/user"
 
-module Bazar
+module Luna
 end
 

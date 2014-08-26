@@ -1,4 +1,4 @@
-module Bazar
+module Luna
   class Version
     MAJOR = 0
     MINOR = 0

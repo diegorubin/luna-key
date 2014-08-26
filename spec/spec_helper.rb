@@ -6,7 +6,7 @@ SimpleCov.start
 
 require 'faraday_middleware'
 require 'figaro'
-require 'bazar'
+require 'luna'
 
 RSpec.configure do |config|
 

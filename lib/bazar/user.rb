@@ -1,4 +1,4 @@
-module Bazar
+module Luna
   class User
 
     CURRENT_API_USER = '/api/v1/users'
@@ -33,7 +33,7 @@ module Bazar
 
     private
     def connection
-      @service ||= Faraday.new(url: Bazar::Config.host) do |faraday|
+      @service ||= Faraday.new(url: Luna::Config.host) do |faraday|
         faraday.request :url_encoded
         faraday.response :json
         faraday.adapter Faraday.default_adapter

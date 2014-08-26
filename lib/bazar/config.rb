@@ -1,4 +1,4 @@
-module Bazar
+module Luna
 
   module Config
 
@@ -24,7 +24,7 @@ module Bazar
 
       private
       def read_config_file
-        file = File.open(File.join(Rails.root.to_s, 'config', 'bazar.yml'))
+        file = File.open(File.join(Rails.root.to_s, 'config', 'luna.yml'))
         @infos = YAML::load(file.read)
       end
 

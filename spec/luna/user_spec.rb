@@ -1,11 +1,11 @@
 require "spec_helper"
 
-describe Bazar::User do
+describe Luna::User do
 
   context "on create" do
 
     let(:valid_user) do 
-      Bazar::User.new({
+      Luna::User.new({
         email: "valid@email.com",
         password: "umasenhadavalida",
         password_confirmation: "umasenhadavalida"
