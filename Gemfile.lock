@@ -119,8 +119,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  luna!
   faraday_middleware
+  luna!
   oauth2
   rails (~> 4.0.0)
   rdoc
