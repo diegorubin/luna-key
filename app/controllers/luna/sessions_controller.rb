@@ -1,5 +1,5 @@
 module Luna
-  class SessionsController < LunaOauthController
+  class SessionsController < ApplicationController
     def new
     end
   end
