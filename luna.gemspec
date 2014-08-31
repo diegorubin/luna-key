@@ -13,9 +13,9 @@ Gem::Specification.new do |s|
   s.description = "Facilitar integração com o Luna Door"
   s.authors     = ['Diego Rubin']
 
-  s.files = %w(Gemfile README.md)
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files += %w(Gemfile README.md)
   s.files << "luna.gemspec"
-  s.files += Dir.glob("lib/**/*.rb")
 
   s.test_files    = `git ls-files -- spec/*`.split("\n")
 
