@@ -1,4 +1,5 @@
-class Luna
-  class Engine < Rails::Engine; end
+module Luna
+  class Engine < ::Rails::Engine
+  end
 end
 
