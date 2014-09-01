@@ -4,6 +4,7 @@ module Luna
     CURRENT_API_USER = '/api/v1/users'
   
     attr_accessor :email, :token
+    attr_reader :id
     attr_writer :password, :password_confirmation
   
     def initialize(attributes = {})
@@ -38,6 +39,10 @@ module Luna
         faraday.response :json
         faraday.adapter Faraday.default_adapter
       end
+    end
+
+    def id=(value)
+      @id = value
     end
   
   end
