@@ -17,11 +17,13 @@ Gem::Specification.new do |s|
   s.files += %w(Gemfile README.md)
   s.files << "luna.gemspec"
 
-  s.test_files    = `git ls-files -- spec/*`.split("\n")
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency("rails", "~> 4.0.0")
   s.add_dependency("oauth2", "0.9.3")
   s.add_dependency("faraday_middleware")
   s.add_dependency("figaro", "~> 0.7.0")
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'factory_girl_rails'
 end
 
