@@ -3,7 +3,7 @@ module Luna
 
     def authenticate_luna_user!
       if !luna_user_signed_in?
-        reditect_to :open_session_path && return false
+        redirect_to open_session_path && return
       end
     end
 
