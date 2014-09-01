@@ -8,6 +8,10 @@ require 'faraday_middleware'
 require 'figaro'
 require 'luna'
 
+require 'rails'
+require 'action_controller/railtie'
+require 'rspec/rails'
+
 RSpec.configure do |config|
 
   config.before(:each) do 
