@@ -2,6 +2,7 @@ module Luna
   class User
 
     CURRENT_API_USER = '/api/v1/users'
+    CURRENT_API_SESSION = '/api/v1/sessions'
   
     attr_accessor :email, :token
     attr_reader :id
@@ -18,7 +19,15 @@ module Luna
         req.body = as_json
       end
     end
-  
+
+    def auth(password)
+      @service = connection
+      @service.post do |req|
+        req.url CURRENT_API_SESSION
+        req.body = {email: @email, password: password}
+      end
+    end
+
     def from_hash(attributes)
       attributes.each do |attribute, value|
         send("#{attribute}=", value)

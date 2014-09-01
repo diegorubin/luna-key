@@ -22,6 +22,12 @@ module Luna
         !session['luna_user_token'].blank?
     end
 
+    def luna_user_sign_in(user)
+      ['id', 'email', 'token'].each do |attr|
+        session["luna_user_#{attr}"] = user.send(attr)
+      end
+    end
+
   end
 end
 
