@@ -6,8 +6,8 @@ module Luna
     CURRENT_API_USER = '/api/v1/users'
     CURRENT_API_SESSION = '/api/v1/sessions'
   
-    attr_accessor :email, :token
-    attr_reader :id, :error
+    attr_accessor :id, :email, :token
+    attr_reader :error
     attr_writer :password, :password_confirmation
   
     def initialize(attributes = {})
@@ -67,10 +67,7 @@ module Luna
       end
     end
 
-    def id=(value)
-      @id = value
-    end
-  
   end
+
 end
 
