@@ -12,7 +12,7 @@ module Luna
       if luna_user_signed_in?
         @user ||= User.new({
           email: session['luna_user_email'], token: session['luna_user_token'],
-          id: sessions['luna_user_id']
+          id: session['luna_user_id']
         })
       end
     end
