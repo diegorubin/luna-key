@@ -19,7 +19,7 @@ module Luna
       end
 
       def host
-        @infos[RAILS_ENV]['host']
+        @infos[Rails.env]['host']
       end
 
       private
