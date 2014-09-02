@@ -1,6 +1,6 @@
 module Luna
   class Engine < ::Rails::Engine
-    isolate_namespace Luna
+    #isolate_namespace Luna
 
     config.generators do |g|
       g.test_framework :rspec, :fixture => false
