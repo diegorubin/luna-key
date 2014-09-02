@@ -3,7 +3,7 @@ module Luna
 
     def authenticate_luna_user!
       if !luna_user_signed_in?
-        redirect_to open_session_path
+        redirect_to controller: 'luna/sessions', action: 'new'
         return
       end
     end
@@ -25,6 +25,12 @@ module Luna
     def luna_user_sign_in(user)
       ['id', 'email', 'token'].each do |attr|
         session["luna_user_#{attr}"] = user.send(attr)
+      end
+    end
+
+    def luna_user_sign_out
+      ['id', 'email', 'token'].each do |attr|
+        session["luna_user_#{attr}"] = nil
       end
     end
 

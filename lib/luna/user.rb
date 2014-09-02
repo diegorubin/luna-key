@@ -45,6 +45,14 @@ module Luna
 
     end
 
+    def logout
+      @service = connection
+      response = @service.delete do |req|
+        req.url CURRENT_API_SESSION
+        req.body = {token: @token}
+      end
+    end
+
     def from_hash(attributes)
       attributes.each do |attribute, value|
         send("#{attribute}=", value)

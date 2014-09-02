@@ -17,6 +17,10 @@ module Luna
       end
     end
 
+    def destroy
+      luna_user_sign_out
+    end
+
   end
 
 end
