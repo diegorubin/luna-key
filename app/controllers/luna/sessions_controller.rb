@@ -7,8 +7,9 @@ module Luna
     end
 
     def create
-      @user = Luna::User.new(email: params[:email])
-      if @user.auth(params[:password])
+      user = params[:user]
+      @user = Luna::User.new(email: user[:email])
+      if @user.auth(user[:password])
         luna_user_sign_in(@user)
       else
         render action: :new

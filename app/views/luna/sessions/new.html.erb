@@ -1,14 +1,24 @@
 <h2><%= t 'sessions.new.title' %></h2>
 
+<% if @user.error %>
+  <%= t @user.error %>
+<% end %>
+
 <%= form_for(:user, as: :user, url: open_session_path, method: :post) do |f| %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </p>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
 
-  <%= f.submit :login %>
+  <p>
+    <%= f.submit :login %>
+  </p>
 
 <% end %>
 

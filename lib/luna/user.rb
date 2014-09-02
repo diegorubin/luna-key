@@ -7,7 +7,7 @@ module Luna
     CURRENT_API_SESSION = '/api/v1/sessions'
   
     attr_accessor :email, :token
-    attr_reader :id
+    attr_reader :id, :error
     attr_writer :password, :password_confirmation
   
     def initialize(attributes = {})
@@ -24,10 +24,25 @@ module Luna
 
     def auth(password)
       @service = connection
-      @service.post do |req|
+      response = @service.post do |req|
         req.url CURRENT_API_SESSION
         req.body = {email: @email, password: password}
       end
+
+      if response.body.kind_of?(Hash)
+        if response.body['status'] == 'ok'
+          token = response.body['token']
+          id = response.body['id']
+          return true
+        else
+          @error = response.body['status']
+        end
+      else
+        @error = 'wrong_response_type'
+      end
+
+      false
+
     end
 
     def from_hash(attributes)
