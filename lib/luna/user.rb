@@ -1,3 +1,5 @@
+require 'faraday_middleware'
+
 module Luna
   class User
 
