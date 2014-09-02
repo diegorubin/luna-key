@@ -1,5 +1,5 @@
 Luna::Engine.routes.draw do
-  get '/open', to: 'luna/sessions#new', as: 'open_session'
-  post '/open', to: 'luna/sessions#create'
+  get '/open', to: 'sessions#new', as: 'open_session'
+  post '/open', to: 'sessions#create'
 end
 
