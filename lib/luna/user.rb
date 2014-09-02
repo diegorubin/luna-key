@@ -31,8 +31,8 @@ module Luna
 
       if response.body.kind_of?(Hash)
         if response.body['status'] == 'ok'
-          token = response.body['token']
-          id = response.body['id']
+          @token = response.body['token']
+          @id = response.body['id']
           return true
         else
           @error = response.body['status']
