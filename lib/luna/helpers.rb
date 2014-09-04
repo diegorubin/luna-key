@@ -3,14 +3,18 @@ module Luna
 
     def authenticate_luna_user!
       if !luna_user_signed_in?
-        redirect_to controller: 'luna/sessions', action: 'new'
-        return
+        if params.has_key?(:token_luna_user)
+          @current_luna_user = User.from_token(params[:token_luna_user])
+        else
+          redirect_to controller: 'luna/sessions', action: 'new'
+          return
+        end
       end
     end
 
     def current_luna_user
       if luna_user_signed_in?
-        @user ||= User.new({
+        @current_luna_user ||= User.new({
           email: session['luna_user_email'], token: session['luna_user_token'],
           id: session['luna_user_id']
         })

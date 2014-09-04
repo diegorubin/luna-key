@@ -15,7 +15,7 @@ module Luna
     end
   
     def create
-      @service = connection
+      @service ||= User.connection
       @service.post do |req|
         req.url CURRENT_API_USER
         req.body = as_json
@@ -23,7 +23,7 @@ module Luna
     end
 
     def auth(password)
-      @service = connection
+      @service ||= User.connection
       response = @service.post do |req|
         req.url CURRENT_API_SESSION
         req.body = {email: @email, password: password}
@@ -46,7 +46,7 @@ module Luna
     end
 
     def logout
-      @service = connection
+      @service ||= User.connection
       response = @service.delete do |req|
         req.url CURRENT_API_SESSION
         req.body = {token: @token}
@@ -66,9 +66,26 @@ module Luna
       }
     end
 
-    private
-    def connection
-      @service ||= Faraday.new(url: Luna::Config.host) do |faraday|
+    def self.from_token(token)
+      service = connection
+
+      response = service.post do |req|
+        req.url CURRENT_API_USER + '/' + token
+        faraday.response :json
+        faraday.adapter Faraday.default_adapter
+      end
+
+      if response.body['status'] == 'ok'
+        User.new(
+          token: token, 
+          email:  response.body['user']['email'],
+          id:  response.body['user']['id']
+        )
+      end
+    end
+
+    def self.connection
+      Faraday.new(url: Luna::Config.host) do |faraday|
         faraday.request :url_encoded
         faraday.response :json
         faraday.adapter Faraday.default_adapter
