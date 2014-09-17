@@ -6,7 +6,7 @@ module Luna
         if params.has_key?(:token_luna_user)
           @current_luna_user = User.from_token(params[:token_luna_user])
         else
-          redirect_to controller: 'luna/sessions', action: 'new'
+          redirect_to open_session_path
           return
         end
       end
