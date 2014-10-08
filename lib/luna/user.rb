@@ -6,7 +6,7 @@ module Luna
     CURRENT_API_USER = '/api/v1/users'
     CURRENT_API_SESSION = '/api/v1/sessions'
   
-    attr_accessor :id, :email, :token
+    attr_accessor :id, :email, :token, :remember_me
     attr_reader :error
     attr_writer :password, :password_confirmation
   

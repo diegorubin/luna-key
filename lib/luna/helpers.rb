@@ -31,10 +31,10 @@ module Luna
         !cookies['luna_user_token'].blank?
     end
 
-    def luna_user_sign_in(user, remember = false)
+    def luna_user_sign_in(user)
       ['id', 'email', 'token'].each do |attr|
-        if remember
-          cookies["luna_user_#{attr}"] = user.send(attr)
+        if user.remember_me
+          cookies.permanent["luna_user_#{attr}"] = user.send(attr)
         else
           session["luna_user_#{attr}"] = user.send(attr)
         end
@@ -44,7 +44,7 @@ module Luna
     def luna_user_sign_out
       ['id', 'email', 'token'].each do |attr|
         session["luna_user_#{attr}"] = nil
-        cookies["luna_user_#{attr}"] = nil
+        cookies.permanent["luna_user_#{attr}"] = nil
       end
     end
 
