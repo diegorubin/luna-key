@@ -26,18 +26,25 @@ module Luna
 
     def luna_user_signed_in?
       !session['luna_user_id'].blank? && !session['luna_user_email'].blank? &&
-        !session['luna_user_token'].blank?
+        !session['luna_user_token'].blank? ||
+        !cookie['luna_user_id'].blank? && !cookie['luna_user_email'].blank? &&
+        !cookie['luna_user_token'].blank?
     end
 
-    def luna_user_sign_in(user)
+    def luna_user_sign_in(user, remember = false)
       ['id', 'email', 'token'].each do |attr|
-        session["luna_user_#{attr}"] = user.send(attr)
+        if remember
+          cookie["luna_user_#{attr}"] = user.send(attr)
+        else
+          session["luna_user_#{attr}"] = user.send(attr)
+        end
       end
     end
 
     def luna_user_sign_out
       ['id', 'email', 'token'].each do |attr|
         session["luna_user_#{attr}"] = nil
+        cookie["luna_user_#{attr}"] = nil
       end
     end
 
