@@ -10,7 +10,7 @@ module Luna
       user = params[:user]
       @user = Luna::User.new(email: user[:email])
       if @user.auth(user[:password])
-        luna_user_sign_in(@user)
+        luna_user_sign_in(@user, params[:remember])
         redirect_to root_path
       else
         render action: :new

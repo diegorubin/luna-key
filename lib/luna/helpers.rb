@@ -13,10 +13,13 @@ module Luna
     end
 
     def current_luna_user
+      email = cookie['luna_user_email'] || session['luna_user_email']
+      token = cookie['luna_user_token'] || session['luna_user_token']
+      id = cookie['luna_user_id'] || session['luna_user_id']
+
       if luna_user_signed_in?
         @current_luna_user ||= User.new({
-          email: session['luna_user_email'], token: session['luna_user_token'],
-          id: session['luna_user_id']
+          email: email, token: token, id: id
         })
       end
     end
